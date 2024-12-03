@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylei.css') }}">
+    <title>Text File Analyzer</title>
+</head>
+<body class="dark-mode">
+    <h1>File Analyzer</h1>
+    <button onclick="window.location.href='{{ url_for('loader') }}'" class="back2loader">⬅️</button>
+    <div class="tabbtns">
+        <button onclick="window.location.href='{{ url_for('index') }}'" class="tabbtn">Text File</button>
+        <button onclick="window.location.href='{{ url_for('indexBinary') }}'" class="tabbtn">Binary File</button>
+        <button onclick="window.location.href='{{ url_for('indexCSV') }}'" class="tabbtn">CSV File</button>
+    </div>
+    <div class="mainframe">
+        <form class="form" action="{{ url_for('upload_text_file') }}" method="POST" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-label">Choose File</label>
+            <input type="file" id="file-upload" name="file" class="file-button" required>
+            <button type="submit" class="choose-file-button">Upload</button>
+            <span id="file-name">No file chosen</span>
+        </form>
+        <div class="queryframe">
+            <h2>Select Text Queries</h2><br>
+            <div class="query-buttons">
+                <form action="{{ url_for('query_text', query_type='word_count') }}" method="POST">
+                    <button type="submit">No. of Words</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='letter_count') }}" method="POST">
+                    <button type="submit">No. of Letters</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='digit_count') }}" method="POST">
+                    <button type="submit">No. of Digits</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='sentence_count') }}" method="POST">
+                    <button type="submit">No. of Sentences</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='paragraph_count') }}" method="POST">
+                    <button type="submit">No. of Paragraphs</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='longest_word') }}" method="POST">
+                    <button type="submit">Longest Word</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='average_word_length') }}" method="POST">
+                    <button type="submit">Average Word Length</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='most_common_word') }}" method="POST">
+                    <button type="submit">Most Common Word</button>
+                </form>
+                <form action="{{ url_for('query_text', query_type='file_size') }}" method="POST">
+                    <button type="submit">File Size in KB</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="theme-switch">
+        <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>    
+
+    <script>
+        function closeWindow() {
+            // Close the window if it was opened by the script
+            window.close();
+        }
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.innerHTML = body.classList.contains('light-mode') ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

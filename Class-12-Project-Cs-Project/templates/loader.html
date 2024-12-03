@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
+    <title>Text File Analyzer</title>
+</head>
+<body>
+    <div class="loader" id="loading-screen">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Fixed the typo in the id attribute -->
+    <div id="main-content" style="display: none;">
+        <button onclick="window.location.href='{{ url_for('index') }}'" class="big-button">Text File</button>
+        <button onclick="window.location.href='{{ url_for('indexBinary') }}'" class="big-button">Binary File</button>
+        <button onclick="window.location.href='{{ url_for('indexCSV') }}'" class="big-button">CSV File</button>
+    </div>
+
+    <script>
+        // Show loading for 2 seconds (2,000 ms)
+        setTimeout(() => {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }, 2000); // 2 seconds in milliseconds
+    </script>
+</body>
+</html>

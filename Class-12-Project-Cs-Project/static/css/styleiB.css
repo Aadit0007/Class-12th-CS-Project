@@ -1,0 +1,253 @@
+/*Overall Body Css*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #252525; /* Dark background */
+    color: white;
+    overflow: hidden;
+}
+
+/*Theme Switcher Css*/
+
+.theme-switch {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.theme-switch button {
+    background: inherit;
+    border: none;
+    border-radius: 0.6rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/*Light Themes Changes Css*/
+
+.light-mode {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.light-mode .tabbtns {
+    background-color: #ffffff;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .tabbtn {
+    background-color: #D0D0D0;
+}
+
+.light-mode .mainframe {
+    background-color: #cecece;
+}
+
+.light-mode .queryframe {
+    background-color: #ffffff;
+}
+
+.light-mode .choose-file-button {
+    background-color: white;
+    color: black;
+}
+
+.light-mode .custom-file-label {
+    background-color: white;
+    color: black;
+}
+
+.light-mode #file-name {
+    color: black;
+}
+
+.light-mode .query-buttons button {
+    background-color: #D0D0D0;
+    color: black;
+}
+
+.light-mode .query-buttons button:hover {
+    background-color: #a4a4a4;
+}
+
+.light-mode .back2loader{
+    background-color: white;
+}
+/*Normal Css*/
+/*TabButtons*/
+.tabbtns {
+    position: relative;
+    height: 3rem;
+    background-color: rgb(68, 68, 68);
+    border: 0px;
+    border-radius: 2rem;
+    width: 25rem;
+    margin: 0 auto;
+    top: 43.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 1;
+    box-shadow: 0.2rem 0.5rem 1rem rgba(255, 255, 255, 0.3);
+}
+
+.tabbtn {
+    padding: 0.5rem;
+    width: 6.25rem;
+    background-color: rgb(109, 109, 109);
+    border: 0px;
+    border-radius: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.tabbtn:hover{
+    transform: scale(1.1);
+    
+}
+
+/*MainFrame*/
+
+.mainframe {
+    position: relative;
+    background-color: #575757;
+    width: 90%;
+    height: 42rem;
+    top: 1.25rem;
+    left: 5%;
+    z-index: 0;
+    border-radius: 1.25rem;
+    border: 0px;
+}
+
+/*h1*/
+
+h1 {
+    position: relative;
+    top: 0px;
+    left: 44%;
+    padding: 0.06rem;
+    height: 0.06rem;
+}
+
+/*ChooseFileBtn*/
+
+.form {
+    position: relative;
+    height: 0.625rem;
+    top: 5rem;
+    left: 4.375rem;
+}
+
+.custom-file-label {
+    display: inline-block;
+    width: 9.375rem;
+    height: 2.5rem;
+    background-color: #8A8A8A;
+    color: white;
+    text-align: center;
+    line-height: 2.5rem;
+    border-radius: 0.6rem;
+    margin-top: 0.6rem;
+    cursor: pointer;
+}
+
+.file-button {
+    display: none;
+    padding: 0px; /* Hide the default file input */
+}
+
+.choose-file-button:hover {
+    transform: scale(1.1);
+}
+
+.choose-file-button {
+    position: relative;
+    left: 0.3rem;
+    width: 5rem;
+    height: 2.5rem;
+    border: 0px;
+    background-color: #8A8A8A;
+    color: white;
+    border-radius: 0.6rem;
+    margin-top: 0.6rem;
+}
+
+#file-name {
+    margin-left: 0.6rem;
+    color: white;
+}
+
+/*QueryFrame*/
+
+.queryframe {
+    position: relative;
+    display: flex;
+    top: 9.375rem;
+    left: 5%;
+    width: 90%;
+    height: 30rem;
+    background-color: #8A8A8A;
+    border: 0;
+    border-radius: 1.25rem;
+}
+
+/*h2*/
+h2 {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    top: 0.6rem;
+}
+
+/*QueryBtn*/
+
+a {
+    text-decoration: none;
+}
+
+.query-buttons {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    z-index: 3;
+}
+
+.query-buttons button {
+    height: 1.875rem;
+    width: 50rem;
+    text-decoration: none;
+    display: block;
+    margin: 0.625rem auto;
+    padding: 0.625rem;
+    background-color: #3a3a3a; /* Darker gray for dark mode */
+    border: none;
+    color: #fff; /* White text for contrast */
+    border-radius: 0.5rem; /* Slightly larger radius for smoother look */
+    cursor: pointer;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.query-buttons button:hover {
+    background-color: #5a5a5a;
+    transform: scale(0.98);
+}
+
+.back2loader{
+    position: relative;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    top: -50px;
+    background-color: rgb(167, 167, 167);
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.back2loader:hover{
+    transform: scale(1.1);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styler.css') }}">
+    <title>Binary Query Result</title>
+</head>
+<body class="dark-mode">
+    <h1>Query Result</h1>
+    <h3>{{ query_type }}</h3>
+    <p>{{ result }}</p>
+    <a href="{{ url_for('indexBinary') }}"><button>Back</button></a>
+    <div class="theme-switch">
+        <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>    
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.innerHTML = body.classList.contains('light-mode') ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

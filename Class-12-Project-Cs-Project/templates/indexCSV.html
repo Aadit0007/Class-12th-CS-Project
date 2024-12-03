@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleiC.css') }}">
+
+    <title>CSV File Analyzer</title>
+</head>
+<body class="dark-mode">
+    <h1>File Analyzer</h1>
+    <button onclick="window.location.href='{{ url_for('loader') }}'" class="back2loader">⬅️</button>
+    <div class="tabbtns">
+        <button onclick="window.location.href='{{ url_for('index') }}'" class="tabbtn">Text File</button>
+        <button onclick="window.location.href='{{ url_for('indexBinary') }}'" class="tabbtn">Binary File</button>
+        <button onclick="window.location.href='{{ url_for('indexCSV') }}'" class="tabbtn">CSV File</button>
+    </div>
+    
+    <div class="mainframe">
+        <form class="form" method="POST" enctype="multipart/form-data" action="{{ url_for('upload_csv_file') }}">
+            <label for="file-upload" class="custom-file-label">Choose File</label>
+            <input type="file" id="file-upload" name="file" class="file-button" accept=".csv" required>
+            <button type="submit" class="choose-file-button">Upload</button>
+            <span id="file-name">No file chosen</span>
+        </form>
+
+        <div class="queryframe">
+            <h2>Select CSV Queries</h2>
+            <div class="query-buttons">
+                <form method="POST" action="{{ url_for('query_csv', query_type='read_content') }}">
+                    <button type="submit">Read Content</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='number_of_records') }}">
+                    <button type="submit">Count No. of Records</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='number_of_fields') }}">
+                    <button type="submit">Count No. of Fields</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='number_of_words') }}">
+                    <button type="submit">Count No. of Words</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='number_of_letters') }}">
+                    <button type="submit">Count No. of Letters</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='most_common_word') }}">
+                    <button type="submit">Most Common Word</button>
+                </form>
+                <form method="POST" action="{{ url_for('query_csv', query_type='file_size') }}">
+                    <button type="submit">File Size in KB</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-switch">
+        <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>    
+
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name + " uploaded";
+            } else {
+                fileNameDisplay.textContent = 'No file chosen';
+            }
+        });
+
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.innerHTML = body.classList.contains('light-mode') ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>
