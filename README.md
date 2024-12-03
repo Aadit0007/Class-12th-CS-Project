@@ -2,7 +2,8 @@
 
 *Class 12*
 
-![Screenshot 2024-11-05 195235](https://github.com/user-attachments/assets/0e347ae1-2ca2-48f5-a48b-0aeae96725ed)
+![image](https://github.com/user-attachments/assets/7e608843-6658-44ea-a0d2-49342bc01e75)
+
 
 *Overview*
 
